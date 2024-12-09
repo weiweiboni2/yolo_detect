@@ -4,40 +4,53 @@ YOLO系列模型训练自己的数据集
 
 [![Cuda](https://img.shields.io/badge/CUDA-12.6-%2376B900?logo=nvidia)](https://developer.nvidia.com/cuda-toolkit-archive)  [![Python](https://img.shields.io/badge/Python-3.9-%2314354C?logo=python&logoColor=white)](https://www.python.org/downloads/)  ![OpenCV](https://img.shields.io/badge/OpenCV-4.10.0-orange.svg)  ![PyTorch](https://img.shields.io/badge/PyTorch-2.2.0-blue.svg)  
 
+## 配置环境
+
 ``` python
  pip install ultralytics
 ```
 
-## 数据集准备
+## 数据准备
 
-- [x] 数据集data目录结构：
+- [x] 数据集目录结构：
 
 ```text
   .
-├── ./data
-│   ├── ./data/labels
-│   │   ├── ./data/labels/0.txt
-│   │   ├── ./data/labels/1.txt
-│   │   ├── ./data/labels/2.txt
-│   │   ├── ./data/labels/3.txt
+├── ./DroneVehicle_det
+│   ├── ./DroneVehicle_det/labels
+│   │   ├── ./DroneVehicle_det/labels/0.txt
+│   │   ├── ./DroneVehicle_det/labels/1.txt
+│   │   ├── ./DroneVehicle_det/labels/2.txt
+│   │   ├── ./DroneVehicle_det/labels/3.txt
 │   │   ├── ...
-│   ├── ./data/images
-│   │   ├── ./data/images/0.jpg
-│   │   ├── ./data/images/1.jpg
-│   │   ├── ./data/images/2.jpg
-│   │   ├── ./data/images/3.jpg
+│   ├── ./DroneVehicle_det/images
+│   │   ├── ./DroneVehicle_det/images/0.jpg
+│   │   ├── ./DroneVehicle_det/images/1.jpg
+│   │   ├── ./DroneVehicle_det/images/2.jpg
+│   │   ├── ./DroneVehicle_det/images/3.jpg
 │   │   ├── ...
-│   └── ./data/data.yaml
+│   └── ./DroneVehicle_det/DroneVehicle_det.yaml
 ```
 
-## 模型训练
-
-- [x] 修改配置文件，进行模型训练：
+- [x] 修改数据加载配置文件，例：
 
     ```python
-    # 运行train.py脚本，对模型进行训练
-    python train.py
+    path: E:\python_pj\yolov8\YOLOv8-main\data\DroneVehicle_det
+    train: E:\python_pj\yolov8\YOLOv8-main\data\DroneVehicle_det\images\train
+    val: E:\python_pj\yolov8\YOLOv8-main\data\DroneVehicle_det\images\val
+    test: E:\python_pj\yolov8\YOLOv8-main\data\DroneVehicle_det\images\test
+    names:
+    0: '机动车：'
+    #  0: '机动车：'
+    #  1: '机动车：'
+    #  2: '机动车：'
+    #  3: '机动车：'
+    #  4: '机动车：'
+    nc: 1
+
     ```
+
+## 模型训练
 
 - [x] 训练集：
 - [x] 验证集：
