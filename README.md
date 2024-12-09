@@ -54,47 +54,12 @@ YOLO系列模型训练自己的数据集
 
 ## 模型训练
 
-<<<<<<< HEAD
-[参考](https://github.com/serendipityshe/datasetCreation)
-=======
- [参考](https://github.com/serendipityshe/datasetCreation)
->>>>>>> 78e756a3ec9a8e166abb5c6cc74310e2f468ad67
+[参考](<https://github.com/serendipityshe/datasetCreation>)
 
 - [x] 训练集：提供涵盖多种特征的不同变换的照片，使模型可以学习到特征与目标之间的映射关系。训练集要尽可能大，能涵盖输入和输出的全部范围。
 - [x] 验证集：用于验证模型在训练过程中的效果，并用来调整模型超参数（引导训练方向），验证集和训练集应来自相同的数据分布，但必须是训练集之外的数据样本，大小通常为训练数据集的10-30%。
 - [x] 测试集：用于评估模型的最终性能,测试集必须是模型训练过程中未曾使用过的数据。用于评估模型的最终性能，测试集必须是模型训练过程中未曾使用过的数据。来自相同的数据分布，其大小也为训练集的10-30%。
-<<<<<<< HEAD
 - [x] 命令行训练命令：
-=======
-
-## 模型推理
-
-- [x] 模型推理：
-[X-anylabeling](https://github.com/CVHub520/X-AnyLabeling)  
-
-- X-anylabeling是一款开源的图像标注工具，支持多种格式的标签文件。
-- 将预训练权重转换为onnx格式，导入X-anylabeling模型，进行自动推理，实现半自动标注。
-
-    ```python
-    # 安装依赖
-    # 运行pt_onnx.py脚本，对权重进行转换
-    pip install ultralytics onnx onnxruntime
-    python pt_onnx.py
-    ```
-
-- 自定义模型的配置文件：
-
-    ```txt
-    # type 类型是固定的几个类别(官网查看对应类别)，name是模型名称，display_name是显示名称(找到模型的唯一标识符)
-    # 将权重与配置文件放置在同一目录下
-
-    type: yolov8_obb
-    name: yolov8m_obb_UBW-r20241206
-    display_name: yolov8m_obb_UBW_2
-    model_path: E:\python_pj\X-AnyLabeling-main\models\UBW\best.onnx
-    classes:
-    - UBW
->>>>>>> 78e756a3ec9a8e166abb5c6cc74310e2f468ad67
   
     ```python
     # 视频预测（可把视频路径换成图片路径，预测图片）：
@@ -109,7 +74,7 @@ YOLO系列模型训练自己的数据集
     ```
 
 - [x] 训练代码：
-[代码参考](https://blog.csdn.net/weixin_41171614/article/details/136922875?ops_request_misc=&request_id=&biz_id=102&utm_term=yolov8%E6%A8%A1%E5%9E%8B%E9%AA%8C%E8%AF%81&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-0-136922875.142^v100^pc_search_result_base4&spm=1018.2226.3001.4187)
+[代码参考](<https://blog.csdn.net/weixin_41171614/article/details/136922875?ops_request_misc=&request_id=&biz_id=102&utm_term=yolov8%E6%A8%A1%E5%9E%8B%E9%AA%8C%E8%AF%81&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-0-136922875.142^v100^pc_search_result_base4&spm=1018.2226.3001.4187>)
 
     ```python
     # 训练代码，设置超参数：
