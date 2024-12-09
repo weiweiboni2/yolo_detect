@@ -12,6 +12,8 @@ YOLO系列模型训练自己的数据集
 
 ## 数据准备
 
+- [x] 数据处理参考 [labels](https://github.com/ultralytics/yolov8)
+
 - [x] 数据集目录结构：
 
 ```text
