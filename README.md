@@ -2,20 +2,50 @@
 
 YOLO系列模型训练自己的数据集
 
-[![Cuda](https://img.shields.io/badge/CUDA-12.6-%2376B900?logo=nvidia)](https://developer.nvidia.com/cuda-toolkit-archive)
-[![Python](https://img.shields.io/badge/Python-3.9-%2314354C?logo=python&logoColor=white)](https://www.python.org/downloads/)  
-![opencv](https://img.shields.io/badge/opencv-4.10.0-green.svg)  
-![PyQt5](https://img.shields.io/badge/PyQt5-5.15.7-orange.svg)  
-![torch](https://img.shields.io/badge/torch-2.2.0-blue.svg)  
+[![Cuda](https://img.shields.io/badge/CUDA-12.6-%2376B900?logo=nvidia)](https://developer.nvidia.com/cuda-toolkit-archive)  [![Python](https://img.shields.io/badge/Python-3.9-%2314354C?logo=python&logoColor=white)](https://www.python.org/downloads/)  ![OpenCV](https://img.shields.io/badge/OpenCV-4.10.0-orange.svg)  ![PyTorch](https://img.shields.io/badge/PyTorch-2.2.0-blue.svg)  
 
+``` python
+ pip install ultralytics
+```
 
-## 简介
+## 数据集准备
 
-- [x] 利用X-anylabeling进行数据集标注，生成xml格式和yolo格式的标签文件。
-- [x] 制作自己的数据集，数据处理包括：数据增强、数据扩充、数据集划分、标签转换等。
+- [x] 数据集data目录结构：
 
-## 标注工具介绍
+```text
+  .
+├── ./data
+│   ├── ./data/labels
+│   │   ├── ./data/labels/0.txt
+│   │   ├── ./data/labels/1.txt
+│   │   ├── ./data/labels/2.txt
+│   │   ├── ./data/labels/3.txt
+│   │   ├── ...
+│   ├── ./data/images
+│   │   ├── ./data/images/0.jpg
+│   │   ├── ./data/images/1.jpg
+│   │   ├── ./data/images/2.jpg
+│   │   ├── ./data/images/3.jpg
+│   │   ├── ...
+│   └── ./data/data.yaml
+```
 
+## 模型训练
+
+- [x] 修改配置文件，进行模型训练：
+
+    ```python
+    # 运行train.py脚本，对模型进行训练
+    python train.py
+    ```
+
+- [x] 训练集：
+- [x] 验证集：
+- [x] 测试集：
+
+## 模型推理
+
+- [x] 模型推理：
 [X-anylabeling](https://github.com/CVHub520/X-AnyLabeling)  
 
 - X-anylabeling是一款开源的图像标注工具，支持多种格式的标签文件。
@@ -43,48 +73,7 @@ YOLO系列模型训练自己的数据集
   
     ```
 
-## 数据集扩充
-
-1. 对数据集进行旋转、随机裁剪、加噪、随机遮挡等操作，对数据集进行扩充(标签为归一化之后的yolo类型)：
-
-    ```python
-    # 运行enhance.py脚本，对数据集进行扩充
-    python enhance.py
-    ```
-
-2. 对数据集进行缩放和拼接，对数据集进行扩充(标签为xml类型)：
-
-    ```python
-    python splice.py
-    python padding4.py
-    ```
-
-3. 对标签文件进行可视化：
-
-    ```python
-    # 检测框 id xmin ymin xmax ymax
-    python show_txt_xml.py
-    # 旋转检测框 id x1 y1 x2 y2 x3 y3 x4 y4
-    python obb_labels_show.py
-    ```
-
-4. 将标签文件转换为yolo格式，并进行归一化(标签为xml类型)：
-
-   ```python
-   python xml2txt.py
-   ```
-
-5. 对结果输出的标签名进行更改，显示中文名称(或直接对模型权重中的标签名进行替换)：
-
-    ```python
-    python replace_labels.py
-    ```
-
-6. 对数据集进行划分：
-
-    ```python
-    python replace_labels.py
-    ```
+## 模型输出
 
 ## 引用
 
