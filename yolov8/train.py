@@ -2,20 +2,22 @@ from ultralytics import YOLO
 
 if __name__ == '__main__':
     # 加载模型
-    model = YOLO(r'yolov8.yaml')  # 不使用预训练权重训练
-    # model = YOLO(r'yolov8.yaml').load("yolov8n.pt")  # 使用预训练权重训练
+    # model = YOLO(r"E:\python_pj\yolov8\YOLOv8-main\ultralytics\models\v8\yolov8-obb.yaml")  # 不使用预训练权重训练
+    # model = YOLO(r"E:\python_pj\yolov8\YOLOv8-main\yolov8m-obb.pt")  # 使用预训练权重训练
+    model = YOLO('ultralytics/cfg/models/v8/yolov8m-obb.yaml').load(r"E:\python_pj\yolov8\YOLOv8-main\yolov8m-obb.pt")  # 使用预训练权重训练
     # 训练参数 ----------------------------------------------------------------------------------------------
     model.train(
-        data=r'coco128.yaml',
+        task ='detect',  # (str) 任务类型，选择=[detect, segment, classify]
+        data=r'E:\python_pj\yolov8\YOLOv8-main\data\data_enhance\UBW.yaml',
         epochs=300,  # (int) 训练的周期数
         patience=50,  # (int) 等待无明显改善以进行早期停止的周期数
-        batch=32,  # (int) 每批次的图像数量（-1 为自动批处理）
+        batch=1,  # (int) 每批次的图像数量（-1 为自动批处理）
         imgsz=640,  # (int) 输入图像的大小，整数或w，h
         save=True,  # (bool) 保存训练检查点和预测结果
         save_period=-1,  # (int) 每x周期保存检查点（如果小于1则禁用）
         cache=False,  # (bool) True/ram、磁盘或False。使用缓存加载数据
-        device='',  # (int | str | list, optional) 运行的设备，例如 cuda device=0 或 device=0,1,2,3 或 device=cpu
-        workers=8,  # (int) 数据加载的工作线程数（每个DDP进程）
+        device='0',  # (int | str | list, optional) 运行的设备，例如 cuda device=0 或 device=0,1,2,3 或 device=cpu
+        workers=0,  # (int) 数据加载的工作线程数（每个DDP进程）
         project='runs/train',  # (str, optional) 项目名称
         name='exp',  # (str, optional) 实验名称，结果保存在'project/name'目录下
         exist_ok=False,  # (bool) 是否覆盖现有实验

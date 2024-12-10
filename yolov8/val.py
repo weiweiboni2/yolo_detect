@@ -1,17 +1,17 @@
 from ultralytics import YOLO
-
+# # split :写val就是看验证集的指标，写 test 就是看测试集的指(前提是划分了测试集)
 if __name__ == '__main__':
     # 加载模型
-    model = YOLO(r'xx\xx\best.pt')
+    model = YOLO(r'E:\python_pj\yolov8\YOLOv8-main\runs\obb\train5\weights\best.pt')
     # 验证模型
     metrics = model.val(
         val=True,  # (bool) 在训练期间进行验证/测试
-        data=r'my_data.yaml',
-        split='val',  # (str) 用于验证的数据集拆分，例如'val'、'test'或'train'
+        data=r'E:\python_pj\yolov8\YOLOv8-main\data\data_enhance\UBW.yaml',
+        split='test',  # (str) 用于验证的数据集拆分，例如'val'、'test'或'train'
         batch=1,  # (int) 每批的图像数量（-1 为自动批处理）
         imgsz=640,  # 输入图像的大小，可以是整数或w，h
         device='',  # 运行的设备，例如 cuda device=0 或 device=0,1,2,3 或 device=cpu
-        workers=8,  # 数据加载的工作线程数（每个DDP进程）
+        workers=0,  # 数据加载的工作线程数（每个DDP进程）
         save_json=False,  # 保存结果到JSON文件
         save_hybrid=False,  # 保存标签的混合版本（标签 + 额外的预测）
         conf=0.001,  # 检测的目标置信度阈值（默认为0.25用于预测，0.001用于验证）
